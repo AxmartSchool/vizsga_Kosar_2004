@@ -26,7 +26,19 @@ namespace Kosar_2004
 
         private static void otodikFeladat()
         {
-            throw new NotImplementedException();
+            int szamlalo = 0;
+
+            while(!Merkozesek[szamlalo].HazaiCsapat.Contains("Barcelona") && szamlalo < Merkozesek.Count)
+            {
+                szamlalo++;
+            }
+
+            //LINQ megoldas
+            //var csapatnev = Merkozesek.First(x => x.HazaiCsapat.Contains("Barcelona")).HazaiCsapat;
+            //Console.WriteLine($"5. feladat: barcelonai csapat neve: {csapatnev}");
+
+            Console.WriteLine($"5. feladat: barcelonai csapat neve: {Merkozesek[szamlalo].HazaiCsapat}");
+
         }
 
         private static void negyedikFeladat()
