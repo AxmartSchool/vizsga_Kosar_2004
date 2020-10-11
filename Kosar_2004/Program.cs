@@ -20,8 +20,43 @@ namespace Kosar_2004
             negyedikFeladat();
             otodikFeladat();
             hatodikFeladat();
+            hetedikFeladat();
 
             Console.ReadKey();
+
+        }
+
+        private static void hetedikFeladat()
+        {
+            Console.WriteLine("7. feladat: ");
+
+            var stadionok = new Dictionary<string, int>();
+
+            foreach (var meccs in Merkozesek)
+            {
+
+                if (!stadionok.ContainsKey(meccs.Helyszin))
+                {
+                    stadionok.Add(meccs.Helyszin, 1);
+                }
+                else
+                {
+                    stadionok[meccs.Helyszin]++;
+                }
+
+            }
+
+            foreach (var stadion in stadionok)
+            {
+                if (stadion.Value > 20)
+                {
+                    Console.WriteLine($"\t{stadion.Key}: {stadion.Value}");
+                }
+            }
+
+            //LINQ megoldas
+            //Merkozesek.GroupBy(x => x.Helyszin, (hely, meccsekSzama) => new { Helyszin = hely, meccsek = meccsekSzama.Count() }).Where(x => x.meccsek > 20).ToList().ForEach(x => Console.WriteLine($"\t{x.Helyszin}: {x.meccsek}"));
+
 
         }
 
