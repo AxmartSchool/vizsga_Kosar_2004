@@ -19,8 +19,31 @@ namespace Kosar_2004
             harmadikFeladat();
             negyedikFeladat();
             otodikFeladat();
+            hatodikFeladat();
 
             Console.ReadKey();
+
+        }
+
+        private static void hatodikFeladat()
+        {
+            Console.WriteLine("6. feladat: ");
+            foreach (var meccs in Merkozesek)
+            {
+
+                if (meccs.Idopont.Equals("2004-11-21"))
+                {
+                    Console.WriteLine($"\t{meccs.HazaiCsapat}-{meccs.IdegenCsapat} ({meccs.HazaiPont}:{meccs.IdegenPont})");
+
+
+                }
+
+            }
+
+            //LINQ megoldas
+            //Merkozesek.FindAll(x => x.Idopont.Equals("2004-11-21")).ForEach(x => Console.WriteLine($"\t{x.HazaiCsapat}-{x.IdegenCsapat} ({x.HazaiPont}:{x.IdegenPont})"));
+            
+
 
         }
 
